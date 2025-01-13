@@ -1,6 +1,6 @@
 {
   "name": "@ezez/eslint-plugin-todo-task-id",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "repository": "git@github.com:dzek69/ezez-eslint-plugin-todo-task-id.git",
   "author": "Jacek Nowacki",
   "keywords": [

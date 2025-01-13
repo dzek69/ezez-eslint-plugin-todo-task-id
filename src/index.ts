@@ -10,5 +10,13 @@ const plugin = {
     },
 };
 
+const { meta, rules } = plugin;
+
+// It seems that old eslint requires that:
+export {
+    meta,
+    rules,
+};
+
 // eslint-disable-next-line import/no-default-export
 export default plugin;

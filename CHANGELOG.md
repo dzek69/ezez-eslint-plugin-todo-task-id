@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
+## [0.1.1] - 2024-01-13
+### Fixed
+- old eslint version (or old config style?) compatibility
+
 ## [0.1.0] - 2024-12-18
 ### Fixed
 - crash on esm import
