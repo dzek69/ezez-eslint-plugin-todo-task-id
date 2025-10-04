@@ -6,7 +6,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [UNRELEASED]
 (nothing yet)
 
-## [0.1.1] - 2024-01-13
+## [0.1.2] - 2025-10-04
+### Fixed
+- eslint-disable directives with this rule are marked by the rule as containing "todo"
+
+## [0.1.1] - 2025-01-13
 ### Fixed
 - old eslint version (or old config style?) compatibility
 

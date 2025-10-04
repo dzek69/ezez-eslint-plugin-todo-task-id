@@ -60,6 +60,13 @@ const rule: Rule.RuleModule = { // eslint-disable-line object-shorthand
 
                 // eslint-disable-next-line max-lines-per-function
                 comments.forEach((comment) => {
+                    if (comment.type === "Block") {
+                        if (/^(eslint-disable|eslint-disable-line|eslint-disable-next-line)\s+/u.exec(comment.value.trim())) {
+                            // multiline disable directive, can not include any text comment anyway in any form
+                            // everything else will be reported by eslint anyway
+                            return;
+                        }
+                    }
                     const lines = comment.value.split("\n");
                     let nodeReported = false;
                     // eslint-disable-next-line max-statements,max-lines-per-function
@@ -68,6 +75,17 @@ const rule: Rule.RuleModule = { // eslint-disable-line object-shorthand
                         if (nodeReported) {
                             return;
                         }
+
+                        const match = /(eslint-disable-line|eslint-disable-next-line)\s+/u.exec(comment.value.trim());
+
+                        // if there is a match, remove everythung after the match, including match:
+                        if (match) {
+                            const matchLocation = line.indexOf(match[0]);
+                            if (matchLocation >= 0) {
+                                line = line.substring(0, matchLocation).trim();
+                            }
+                        }
+
                         if (!(/(todo|fixme)/iu.exec(line))) {
                             // not a to-do line
                             return;
@@ -130,9 +148,9 @@ const rule: Rule.RuleModule = { // eslint-disable-line object-shorthand
                     });
                 });
             },
-
         };
     },
 };
 
+// eslint-disable-next-line import/no-default-export
 export default rule;
