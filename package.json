@@ -41,7 +41,7 @@
   "module": "./esm/index.js",
   "type": "module",
   "devDependencies": {
-    "@babel/core": "^7.22.20",
+    "@babel/core": "^7.29.6",
     "@babel/preset-env": "^7.22.20",
     "@babel/preset-typescript": "^7.22.15",
     "@ezez/eslint": "^0.0.8",
